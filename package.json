@@ -1,0 +1,23 @@
+{
+  "name": "openai_studynote_frontend",
+  "version": "1.0.0",
+  "description": "Study Note Application using Electron with integration of OpenAi API and Supabase",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ydmundi/OpenAi_StudyNote_FrontEnd.git"
+  },
+  "author": "Ydmundi Semine Perez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ydmundi/OpenAi_StudyNote_FrontEnd/issues"
+  },
+  "homepage": "https://github.com/Ydmundi/OpenAi_StudyNote_FrontEnd#readme",
+  "devDependencies": {
+    "electron": "^24.3.0"
+  }
+}
