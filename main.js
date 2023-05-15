@@ -60,7 +60,7 @@ async function openAI(event, Input) {
       },
       headers: {
         'Content-Type': 'application/json',
-        'Authorization' : 'Bearer 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'
+        'Authorization' : 'Bearer'
       }
 
     }).then(function (response) {
