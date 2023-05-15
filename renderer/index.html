@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -10,12 +11,31 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>Hello from Electron renderer!</title>
+    <title>Study Note Giver</title>
+    <link rel="stylesheet" href="./css/style.css">
   </head>
+
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <p id="info"></p>
+    <h1>Study Note Giver</h1>
+    
+    <form id = "form-sentence">
+      <div id="inputContainer">
+        <div class="inputWrapper">
+          <textarea id="inputField" placeholder="Give me a topic.." name = "Input"></textarea>
+          <input type = "submit" value = "Submit" id = "sendButton">
+        </div>
+      </div>
+   </form>
+    
+    
+    
+    <br>
+    <div>
+      <textarea id = "outputArea" readonly></textarea>
+    </div>
+
+    <script src="./js/script.js"></script>
   </body>
-  <script src="./js/renderer.js"></script>
+
+  <!-- <script src="./js/renderer.js"></script> -->
 </html>

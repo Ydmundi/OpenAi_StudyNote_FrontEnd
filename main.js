@@ -1,6 +1,10 @@
-const { app, BrowserWindow } = require("electron");
+//Imported modules
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require('path');
+const axios = require('axios');
 
+
+//Main window
 const isDev = true;
 
 const createWindow = () => {
@@ -20,6 +24,8 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
+  //Initialize Functions  
+  ipcMain.handle('axios.openAI', openAI)
   createWindow();
 
   app.on("activate", () => {
@@ -34,3 +40,35 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
+
+
+//Main Function
+async function openAI(event, Input) {
+  let res = null;
+
+  await axios({
+      method: 'post',
+      url: 'https://api.openai.com/v1/completions',
+      data: {
+        model: "text-davinci-003",
+        prompt: "What are 5 key points I should know when studying " + Input + " and make it short, maximum of 150 token",
+        temperature: 0.3,
+        max_tokens: 150,
+        top_p: 1.0,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0
+      },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer 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'
+      }
+
+    }).then(function (response) {
+      res = response.data;
+    })
+    .catch(function (error) {
+      res = error;
+    });
+
+  return res;
+}
